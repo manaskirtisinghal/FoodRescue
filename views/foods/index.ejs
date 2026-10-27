@@ -1,0 +1,52 @@
+<% layout("/layouts/boilerplate") %>
+
+<section class="page-shell" aria-labelledby="food-list-heading">
+    <div class="page-heading">
+        <div>
+            <p class="eyebrow">Good food, shared well</p>
+            <h1 id="food-list-heading">Food available nearby</h1>
+            <p class="page-intro">Browse food shared by your community and choose an item to see its details.</p>
+        </div>
+        <a class="btn btn-primary action-button" href="/foods/new">Share food</a>
+    </div>
+
+    <form class="row g-3 align-items-end mb-4" method="GET" action="/foods" role="search" aria-label="Search food listings">
+        <div class="col-12 col-lg-10">
+            <label class="form-label" for="food-search">Food or location</label>
+            <input class="form-control" type="search" id="food-search" name="q" placeholder="e.g. biryani or downtown" value="<%= typeof q !== "undefined" ? q : "" %>"> <!--Value to keep the previous search visbel in seach bar after u searched-->
+        </div>
+        <div class="col-12 col-lg-2 d-grid">
+            <button class="btn btn-primary action-button" type="submit">Search</button>
+        </div>
+    </form>
+
+    <% if (foods.length === 0) { %>
+        <div class="empty-state" role="status">
+            <h2>No food listings yet</h2>
+            <p>Be the first to share food with your community.</p>
+            <a class="btn btn-primary action-button" href="/foods/new">Add a food listing</a>
+        </div>
+    <% } else { %>
+        <div class="row g-4 food-grid">
+            <% for (const food of foods) { %>
+                <div class="col-12 col-md-6 col-xl-4">
+                    <article class="card food-card h-100">
+                        <a class="food-card-image-link" href="/foods/<%= food._id %>" aria-label="View details for <%= food.name %>">
+                            <img class="card-img-top food-card-image" src="<%= food.image %>" data-image-fallback="/images/food-placeholder.svg" alt="<%= food.name %>" loading="lazy">
+                        </a>
+                        <div class="card-body">
+                            <div class="food-card-meta">
+                                <span class="food-type"><%= food.type %></span>
+                                <span class="food-quantity"><%= food.quantity %> available</span>
+                            </div>
+                            <h2 class="card-title"><a href="/foods/<%= food._id %>"><%= food.name %></a></h2>
+                            <p class="food-location"><span aria-hidden="true">⌖</span> <%= food.location %></p>
+                            <p class="card-text food-description"><%= food.description || "Shared with care by a local food provider." %></p>
+                            <a class="card-link" href="/foods/<%= food._id %>">View food details <span aria-hidden="true">→</span></a>
+                        </div>
+                    </article>
+                </div>
+            <% } %>
+        </div>
+    <% } %>
+</section>

@@ -1,0 +1,35 @@
+<% layout("/layouts/boilerplate") %>
+
+<form method="POST" action="/foods" class="needs-validation" aria-describedby="required-note" novalidate>
+    <h1>Share a food listing</h1>
+    <p id="required-note" class="form-note">Fields marked with <span aria-hidden="true">*</span> are required.</p>
+    <label for="name">Food Item Name <span aria-hidden="true">*</span></label>
+    <input class="form-control" type="text" id="name" name="food[name]" placeholder="Enter name of food item" aria-describedby="name-feedback" required>
+    <div class="invalid-feedback" id="name-feedback">Please enter the food item name.</div>
+    <label for="quantity">Quantity <span aria-hidden="true">*</span></label>
+    <input class="form-control" type="number" id="quantity" name="food[quantity]" placeholder="Enter quantity of food item" min="1" aria-describedby="quantity-feedback" required>
+    <div class="invalid-feedback" id="quantity-feedback">Enter a quantity of at least 1.</div>
+    <label for="type">Type <span aria-hidden="true">*</span></label>
+    <select class="form-select" id="type" name="food[type]" aria-describedby="type-feedback" required>
+        <option value="" disabled selected>Select food type</option>
+        <option value="Vegetarian">Vegetarian</option>
+        <option value="Non-Vegetarian">Non-vegetarian</option>
+    </select>
+    <div class="invalid-feedback" id="type-feedback">Choose a food type.</div>
+    <label for="location">Location <span aria-hidden="true">*</span></label>
+    <input class="form-control" type="text" id="location" name="food[location]" placeholder="Enter location" aria-describedby="location-feedback" required>
+    <div class="invalid-feedback" id="location-feedback">Please enter the food location.</div>
+    <label for="desc">Description <span aria-hidden="true">*</span></label>
+    <textarea class="form-control" id="desc" name="food[description]" placeholder="Enter description of food item" aria-describedby="description-feedback" required></textarea>
+    <div class="invalid-feedback" id="description-feedback">Please add a short description.</div>
+    <label for="avail">Available Until <span aria-hidden="true">*</span></label>
+    <input class="form-control" type="date" id="avail" name="food[availableUntil]" aria-describedby="available-feedback" required>
+    <div class="invalid-feedback" id="available-feedback">Choose an availability date.</div>
+    <label for="provider">Food Provider <span aria-hidden="true">*</span></label>
+    <input class="form-control" type="text" id="provider" name="food[providerName]" placeholder="Enter name of food provider" aria-describedby="provider-feedback" required>
+    <div class="invalid-feedback" id="provider-feedback">Please enter the provider name.</div>
+    <label for="img">Image:</label>
+    <input class="form-control" type="url" id="img" name="food[image]" placeholder="https://example.com/food.jpg" aria-describedby="image-feedback">
+    <div class="invalid-feedback" id="image-feedback">Enter a valid image URL, or leave this optional field blank.</div>
+    <button class="btn btn-primary action-button" type="submit">Submit</button>
+</form>

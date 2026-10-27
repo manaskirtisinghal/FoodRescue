@@ -1,0 +1,42 @@
+<% layout("/layouts/boilerplate") %>
+
+<section class="page-shell" aria-labelledby="impact-heading">
+    <div class="page-heading">
+        <div>
+            <p class="eyebrow">Food Rescue</p>
+            <h1 id="impact-heading">Community impact</h1>
+            <p class="page-intro">A snapshot of food shared and collected through the community.</p>
+        </div>
+        <a class="btn btn-primary action-button" href="/foods">Browse food</a>
+    </div>
+
+    <div class="row g-4 food-grid">
+        <div class="col-12 col-md-6 col-xl-4">
+            <article class="card food-card impact-card h-100">
+                <div class="card-body">
+                    <h2 class="impact-label">Food posts</h2>
+                    <p class="impact-value"><%= foodPosts %></p>
+                    <p class="impact-caption">Listings currently recorded.</p>
+                </div>
+            </article>
+        </div>
+        <div class="col-12 col-md-6 col-xl-4">
+            <article class="card food-card impact-card h-100">
+                <div class="card-body">
+                    <h2 class="impact-label">Claims</h2>
+                    <p class="impact-value"><%= claimCount %></p>
+                    <p class="impact-caption">Claimed or picked-up claims; cancelled claims excluded.</p>
+                </div>
+            </article>
+        </div>
+        <div class="col-12 col-md-6 col-xl-4">
+            <article class="card food-card impact-card h-100">
+                <div class="card-body">
+                    <h2 class="impact-label">Servings rescued</h2>
+                    <p class="impact-value"><%= servingsRescued %></p>
+                    <p class="impact-caption">Servings in confirmed picked-up claims.</p>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>

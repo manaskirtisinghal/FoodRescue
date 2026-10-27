@@ -1,0 +1,46 @@
+<% layout("/layouts/boilerplate") %>
+
+<section class="page-shell" aria-labelledby="claims-heading">
+    <div class="page-heading">
+        <div>
+            <p class="eyebrow">Food Rescue activity</p>
+            <h1 id="claims-heading">Claim history</h1>
+            <p class="page-intro">A record of food claimed by members of the community.</p>
+        </div>
+        <a class="btn btn-primary action-button" href="/foods">Browse food</a>
+    </div>
+
+    <% if (claims.length === 0) { %>
+        <div class="empty-state" role="status">
+            <h2>No claims yet</h2>
+            <p>Claims will appear here when someone reserves food.</p>
+            <a class="btn btn-primary action-button" href="/foods">Browse available food</a>
+        </div>
+    <% } else { %>
+        <div class="row g-4 food-grid">
+            <% for (const claim of claims) { %>
+                <div class="col-12 col-md-6 col-xl-4">
+                    <article class="card food-card h-100" aria-labelledby="claim-title-<%= claim._id %>">
+                        <div class="card-body">
+                            <div class="food-card-meta">
+                                <span class="status-badge"><%= claim.status %></span>
+                                <span class="food-quantity"><%= claim.quantity %> claimed</span>
+                            </div>
+                            <h2 class="card-title" id="claim-title-<%= claim._id %>"><%= claim.userName %></h2>
+                            <dl class="detail-list claim-details">
+                                <div>
+                                    <dt>Food listing</dt>
+                                    <dd><%= claim.foodId %></dd>
+                                </div>
+                                <div>
+                                    <dt>Claimed at</dt>
+                                    <dd><time datetime="<%= claim.claimedAt.toISOString() %>"><%= claim.claimedAt.toLocaleString() %></time></dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </article>
+                </div>
+            <% } %>
+        </div>
+    <% } %>
+</section>

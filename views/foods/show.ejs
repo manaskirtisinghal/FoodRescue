@@ -1,0 +1,41 @@
+<% layout("/layouts/boilerplate") %>
+
+<section class="page-shell detail-shell" aria-labelledby="food-title">
+    <a class="back-link" href="/foods"><span aria-hidden="true">←</span> Back to food listings</a>
+    <article class="card detail-card">
+        <div class="row g-0">
+            <div class="col-12 col-lg-5">
+                <img class="detail-image" src="<%= food.image %>" data-image-fallback="/images/food-placeholder.svg" alt="<%= food.name %>">
+            </div>
+            <div class="col-12 col-lg-7">
+                <div class="card-body detail-body">
+                    <div class="food-card-meta">
+                        <span class="food-type"><%= food.type %></span>
+                        <span class="status-badge"><%= food.status %></span>
+                    </div>
+                    <h1 class="card-title" id="food-title"><%= food.name %></h1>
+                    <p class="detail-description"><%= food.description || "No description provided." %></p>
+
+                    <dl class="detail-list">
+                        <div><dt>Quantity</dt><dd><%= food.quantity %></dd></div>
+                        <div><dt>Location</dt><dd><%= food.location %></dd></div>
+                        <div><dt>Available until</dt><dd><time datetime="<%= food.availableUntil.toISOString() %>"><%= food.availableUntil.toLocaleDateString() %></time></dd></div>
+                        <div><dt>Provided by</dt><dd><%= food.providerName %></dd></div>
+                    </dl>
+
+                    <div class="detail-actions">
+                        <a class="btn btn-primary action-button" href="/foods/<%= food._id %>/edit">Edit listing</a>
+                        <form class="claim-form" method="POST" action="/foods/<%= food._id %>/claim">
+                            <label for="claim-user-name">Your name</label>
+                            <input class="form-control" type="text" id="claim-user-name" name="claim[userName]" autocomplete="name" required>
+                            <button class="btn btn-primary action-button" type="submit">Claim one</button>
+                        </form>
+                        <form method="POST" action="/foods/<%= food._id %>?_method=DELETE">
+                            <button class="btn btn-outline-danger delete-button" type="submit">Delete listing</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>

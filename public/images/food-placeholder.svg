@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Food image unavailable</title>
+  <desc id="desc">A simple illustration of a shared meal in a bowl.</desc>
+  <rect width="800" height="520" fill="#f1eee5"/>
+  <circle cx="400" cy="260" r="178" fill="#e5dfd1"/>
+  <circle cx="400" cy="250" r="148" fill="#fffdf8"/>
+  <ellipse cx="400" cy="260" rx="116" ry="91" fill="#d5a45d"/>
+  <path d="M294 255c27-37 48-42 71-24 26 20 38 20 63-2 28-25 54-25 77 1 15 17 19 37 17 53H288c-2-10 0-19 6-28Z" fill="#f5e2ae"/>
+  <path d="M311 291c30-18 50-19 73-3s42 17 66-1 41-18 66-1" fill="none" stroke="#b17b3c" stroke-width="10" stroke-linecap="round"/>
+  <g fill="#617d4d">
+    <ellipse cx="344" cy="227" rx="9" ry="16" transform="rotate(-35 344 227)"/>
+    <ellipse cx="454" cy="220" rx="9" ry="16" transform="rotate(33 454 220)"/>
+    <ellipse cx="404" cy="311" rx="9" ry="16" transform="rotate(18 404 311)"/>
+  </g>
+  <g fill="#bd684d">
+    <circle cx="380" cy="240" r="8"/><circle cx="430" cy="277" r="8"/><circle cx="366" cy="280" r="7"/>
+  </g>
+  <path d="M315 340c22 47 68 77 137 77s115-30 137-77" fill="none" stroke="#c9c0ad" stroke-width="10" stroke-linecap="round"/>
+</svg>
